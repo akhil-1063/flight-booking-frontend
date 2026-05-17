@@ -2,8 +2,6 @@ services:
   - type: web
     name: booking-frontend
     env: static
-    region: oregon
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     headers:
