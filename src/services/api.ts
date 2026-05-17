@@ -89,7 +89,18 @@ class ApiService {
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) throw new Error('Failed to create booking');
+    if (!response.ok) {
+      let errorMessage = 'Failed to create booking';
+      try {
+        const errData = await response.json();
+        if (errData.errors && errData.errors.length > 0) {
+          errorMessage = errData.errors[0].message;
+        } else if (errData.message) {
+          errorMessage = errData.message;
+        }
+      } catch (e) {}
+      throw new Error(errorMessage);
+    }
     return response.json();
   }
 

@@ -81,7 +81,6 @@ const BookingPage: React.FC = () => {
         cabinClass: selectedClass,
         passengers: passengers.map((p) => ({
           ...p,
-          dateOfBirth: new Date(p.dateOfBirth).toISOString(),
         })),
       };
 
