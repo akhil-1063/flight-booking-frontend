@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     try {
       setError(null);
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://booking-backend-4-8bxx.onrender.com/api/v1';
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://booking-backend-n9p7.onrender.com/api/v1';
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
@@ -78,7 +78,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   ) => {
     try {
       setError(null);
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://booking-backend-4-8bxx.onrender.com/api/v1';
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://booking-backend-n9p7.onrender.com/api/v1';
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: 'POST',
         headers: {
@@ -108,7 +108,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = async () => {
     try {
       if (accessToken) {
-        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://booking-backend-4-8bxx.onrender.com/api/v1';
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://booking-backend-n9p7.onrender.com/api/v1';
         await fetch(`${API_BASE_URL}/auth/logout`, {
           method: 'POST',
           headers: {
