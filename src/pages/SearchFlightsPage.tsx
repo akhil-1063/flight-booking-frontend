@@ -49,10 +49,11 @@ const SearchFlightsPage: React.FC = () => {
         if (origin) params.origin = origin;
         if (destination) params.destination = destination;
         if (departureDate) params.departureDate = departureDate;
-        if (searchParams.get('returnDate')) params.returnDate = searchParams.get('returnDate');
+        const returnDate = searchParams.get('returnDate');
+        if (returnDate) params.returnDate = returnDate;
         if (searchParams.get('passengers')) params.passengers = parseInt(searchParams.get('passengers') || '1');
 
-        const response = await apiService.searchFlights(params, accessToken || undefined);
+        const response = await apiService.searchFlights(params as any, accessToken || undefined);
         setFlights(response.data.flights);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to search flights');
